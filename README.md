@@ -1,4 +1,4 @@
-Object Oriented Ship Battling, Ahem Programming
+My Object Oriented experience
 ===============================================
 
 This repository holds the screencast code, script and blueprints for a

@@ -1,8 +1,21 @@
 <?php
 
+require_once __DIR__.'/lib/Ship.php';
+
 function get_ships()
 {
-    return array(
+    $ships = array();
+
+    $ship = new Ship();
+    $ship->name = 'Jedi Starfighter';
+    $ship->weaponPower = 5;
+    $ship->jediFactor = 15;
+    $ship->strength = 30;
+    $ships['starfighter'] = $ship;
+
+    return $ships;
+
+    /*return array(
         'starfighter' => array(
             'name' => 'Jedi Starfighter',
             'weapon_power' => 5,
@@ -27,7 +40,7 @@ function get_ships()
             'jedi_factor' => 4,
             'strength' => 50,
         ),
-    );
+    );*/
 }
 
 /**
