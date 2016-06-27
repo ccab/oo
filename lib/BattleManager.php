@@ -11,7 +11,7 @@ class BattleManager
     {
         $ship1Health = $ship1->getStrength() * $ship1Quantity;
         $ship2Health = $ship2->getStrength() * $ship2Quantity;
-
+        
         $ship1UsedJediPowers = false;
         $ship2UsedJediPowers = false;
         while ($ship1Health > 0 && $ship2Health > 0) {

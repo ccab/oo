@@ -39,4 +39,9 @@ class BattleResult
         return $this->usedJediPowers;
     }
 
+    public function isThereAWinner()
+    {
+        return $this->winningShip !== null;
+    }
+
 }
