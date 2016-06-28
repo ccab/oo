@@ -4,6 +4,20 @@ class ShipLoader
 {
     private $pdo;
 
+    private $dbDsn;
+
+    private $dbUser;
+
+    private $dbPass;
+    
+    public function __construct($dbDsn, $dbUser, $dbPass)
+    {
+        $this->dbDsn = $dbDsn;
+        $this->dbUser = $dbUser;
+        $this->dbPass = $dbPass;
+    }
+
+
     /**
      * @return Ship[]
      */
