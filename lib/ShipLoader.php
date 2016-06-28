@@ -78,7 +78,7 @@ class ShipLoader
     private function getPDO()
     {
         if ($this->pdo === null) {
-            $pdo = new PDO('mysql:host=localhost;dbname=oo_battle', 'root');
+            $pdo = new PDO($this->dbDsn, $this->dbUser, $this->dbPass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $this->pdo = $pdo;
