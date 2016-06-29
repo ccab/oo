@@ -10,7 +10,7 @@ class ShipLoader
     }
     
     /**
-     * @return Ship[]
+     * @return AbstractShip[]
      */
     function getShips()
     {
@@ -26,7 +26,7 @@ class ShipLoader
 
     /**
      * @param $id
-     * @return null|Ship
+     * @return null|AbstractShip
      */
     public function findOneById($id)
     {
@@ -54,7 +54,7 @@ class ShipLoader
 
     /**
      * @param $shipData
-     * @return Ship
+     * @return AbstractShip
      */
     private function createShipFromData($shipData)
     {

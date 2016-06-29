@@ -8,7 +8,7 @@ class BattleResult
     
     private $usedJediPowers;
 
-    public function __construct(Ship $winningShip, Ship $losingShip, $usedJediPowers)
+    public function __construct(AbstractShip $winningShip, AbstractShip $losingShip, $usedJediPowers)
     {
         $this->winningShip = $winningShip;
         $this->losingShip = $losingShip;

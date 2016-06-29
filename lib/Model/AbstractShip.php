@@ -1,6 +1,6 @@
 <?php
 
-class AbstractShip
+abstract class AbstractShip
 {
     private $id;
 
@@ -10,18 +10,16 @@ class AbstractShip
 
     private $strength = 0;
 
-    private $underRepair;
-
     public function __construct($name)
     {
         $this->name = $name;
-        $this->underRepair = mt_rand(1, 100) < 30;
     }
 
-    public function isFunctional()
-    {
-        return !$this->underRepair;
-    }
+    abstract public function getJediFactor();
+
+    abstract public function getType();
+
+    abstract public function isFunctional();
 
     public function getNameAndSpecs($useShortFormat = false)
     {
@@ -103,10 +101,5 @@ class AbstractShip
     public function setStrength($strength)
     {
         $this->strength = $strength;
-    }
-
-    public function getType()
-    {
-        return 'Empire';
     }
 }
