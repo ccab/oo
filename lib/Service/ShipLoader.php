@@ -2,21 +2,22 @@
 
 class ShipLoader
 {
-    private $pdo;
+    private $shipStorage;
 
-    public function __construct($pdo)
+    public function __construct(PdoShipStorage $shipStorage)
     {
-        $this->pdo = $pdo;
+        $this->shipStorage = $shipStorage;
     }
-    
+
+
     /**
      * @return AbstractShip[]
      */
     function getShips()
     {
-        $shipsData = $this->queryForShips();
-        $ships = array();
+        $shipsData = $this->shipStorage->fetchAllShipsData();
 
+        $ships = array();
         foreach ($shipsData as $shipData) {
             $ships[] = $this->createShipFromData($shipData);
         }
@@ -30,26 +31,9 @@ class ShipLoader
      */
     public function findOneById($id)
     {
-        $pdo = $this->getPDO();
-        $statement = $pdo->prepare('SELECT * FROM ship WHERE id = :id');
-        $statement->execute(['id' => $id]);
-        $shipArray = $statement->fetch(PDO::FETCH_ASSOC);
-
-        if (!$shipArray) {
-            return null;
-        }
+        $shipArray = $this->shipStorage->fetchSingleShipData($id);
 
         return $this->createShipFromData($shipArray);
-    }
-
-    private function queryForShips()
-    {
-        $pdo = $this->getPDO();
-        $statement = $pdo->prepare('SELECT * FROM ship');
-        $statement->execute();
-        $shipsArray = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        return $shipsArray;
     }
 
     /**
@@ -69,10 +53,5 @@ class ShipLoader
         $ship->setWeaponPower($shipData['weapon_power']);
         $ship->setStrength($shipData['strength']);
         return $ship;
-    }
-
-    private function getPDO()
-    {
-        return $this->pdo;
     }
 }
