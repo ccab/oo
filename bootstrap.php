@@ -8,7 +8,10 @@ require_once __DIR__ . '/lib/Model/BattleResult.php';
 require_once __DIR__ . '/lib/Service/Container.php';
 require_once __DIR__ . '/lib/Service/BattleManager.php';
 require_once __DIR__ . '/lib/Service/ShipLoader.php';
+require_once __DIR__ . '/lib/Service/ShipStorageInterface.php';
 require_once __DIR__ . '/lib/Service/PdoShipStorage.php';
+require_once __DIR__ . '/lib/Service/JsonFileShipStorage.php';
+
 
 $configuration = [
     'db_dsn' => 'mysql:host=localhost;dbname=oo_battle',
